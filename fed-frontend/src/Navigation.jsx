@@ -1,5 +1,6 @@
 
 import { ShoppingCart } from "lucide-react";
+import { Link } from "react-router";
 
 function Navigation(props){
     return (
@@ -22,7 +23,13 @@ function Navigation(props){
                     </div>
                     </a>
                     </div>
-                    <p>Hi,{props.name}</p>
+                    {props.name && <p>Hi, {props.name}</p>}
+                    {!props.name && (
+                        <div className="flex items-center gap-4">
+                            <Link to ="/signin">Sign In</Link>
+                            <Link to ="/signup">Sign Up</Link>
+                        </div>
+                    )}
                 </div>
             </nav>
             <div className="seperator border-t-4 rounded-md"></div>
