@@ -1,4 +1,4 @@
-import NotFoundError from "../../Domain/errors/not-found-error.js";
+import NotFoundError from ".././Domain/errors/not-found-error.js";
 
 const products = [
     {
