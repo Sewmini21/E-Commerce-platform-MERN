@@ -70,20 +70,36 @@ import Product from "../Infrastructure/schemas/Product.js";
 
 // ];
 
+// export const getProducts = async (req, res, next) => {
+//     try {
+//         const {categoryId} = req.query;
+//         if(!categoryId){
+//         const data = await Product.find();
+//         res.status(200).json(data).send();
+//         }
+//         const data = await Product.find({categoryId});
+//         res.status(200).json(data).send();
+//     } catch (error) {
+//         next(error)
+//     }
+
+// }
 export const getProducts = async (req, res, next) => {
     try {
-        const {categoryId} = req.query;
-        if(!categoryId){
-        const data = await Product.find();
-        res.status(200).json(data).send();
-        }
-        const data = await Product.find({categoryId});
-        res.status(200).json(data).send();
-    } catch (error) {
-        next(error)
-    }
+        const { categoryId } = req.query;
 
-}
+        let data;
+        if (!categoryId) {
+            data = await Product.find();
+        } else {
+            data = await Product.find({ categoryId });
+        }
+
+        res.status(200).json(data); // Only one response is sent
+    } catch (error) {
+        next(error); // Pass errors to the Express error handler
+    }
+};
 
 export const createProducts = async (req, res, next) => {
     try {

@@ -6,10 +6,10 @@ function ProductCards(props){
                 props.products.map((Product) => (
                     <ProductCard 
                     key = {Product._id}
-                    productName={Product.productName}
+                    name={Product.name}
                     price={Product.price}
-                    img={Product.img}
-                    productDescription={Product.productDescription}
+                    image={Product.image}
+                    description={Product.description}
                 />
                 ) )
             }
